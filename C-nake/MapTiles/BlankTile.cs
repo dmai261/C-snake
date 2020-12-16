@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using C_nake.Constants;
 
 namespace C_nake.MapTiles
 {
-    public class BlankTile
+    public class BlankTile : Tile
     {
+        public BlankTile()
+        {
+            color = MapTileColors.Blank;
+            symbol = MapTileSymbols.Blank;
+        }
     }
 }
