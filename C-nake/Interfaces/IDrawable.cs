@@ -4,7 +4,8 @@ using System.Text;
 
 namespace C_nake.Interfaces
 {
-    public interface IDrawable
+    interface IDrawable
     {
+        void Draw();
     }
 }
