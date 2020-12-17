@@ -12,7 +12,7 @@ namespace C_nake.Models
         /// Constructor for generating a random coordinate inside map bounds.
         /// </summary>
         /// <param name="rng">Reference to a Random instance</param>
-        public MapCoordinate(ref Random rng)
+        public MapCoordinate(Random rng)
         {
             Col = rng.Next(0, MapDimensions.Cols);
             Row = rng.Next(0, MapDimensions.Rows);

@@ -22,7 +22,7 @@ namespace C_nakeTests
         public void CreateNewRandomMapCoordinateTest()
         {
             Random rng = new Random();
-            MapCoordinate coord = new MapCoordinate(ref rng);
+            MapCoordinate coord = new MapCoordinate(rng);
             Assert.IsTrue(coord.Row >= 0 && coord.Row < MapDimensions.Rows);
             Assert.IsTrue(coord.Col >= 0 && coord.Col < MapDimensions.Cols);
         }
