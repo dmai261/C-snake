@@ -10,6 +10,9 @@ namespace C_nake.MapTiles
         protected char symbol;
         public char Symbol { get { return symbol; } }
 
+        /// <summary>
+        /// Method for drawing an individual tile to console.
+        /// </summary>
         public void Draw()
         {
             ConsoleColor originalColor = Console.ForegroundColor;

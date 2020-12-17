@@ -5,7 +5,7 @@ using C_nake.Constants;
 namespace C_nakeTests
 {
     [TestClass]
-    public class UnitTest1
+    public class MapTileTests
     {
         [TestMethod]
         public void AppleTileTest()
