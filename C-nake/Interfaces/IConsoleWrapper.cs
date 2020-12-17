@@ -4,8 +4,8 @@ using System.Text;
 
 namespace C_nake.Interfaces
 {
-    interface IUserInput
+    public interface IConsoleWrapper
     {
-        ConsoleKey GetMove();
+        public ConsoleKeyInfo ReadKey();
     }
 }

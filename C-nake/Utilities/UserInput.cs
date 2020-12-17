@@ -7,13 +7,21 @@ namespace C_nake.Utilities
 {
     public class UserInput : IUserInput
     {
-        public string GetMove()
+
+        private UserInput(IConsoleWrapper consoleMethods)
+        {
+            console = consoleMethods;
+        }
+
+        IConsoleWrapper console;
+
+        public ConsoleKey GetMove()
         {
             ConsoleKeyInfo input;
 
-            input = Console.ReadKey(true);
+            input = console.ReadKey();
 
-            string keyPressed = input.Key.ToString();
+            ConsoleKey keyPressed = input.Key;
 
             return keyPressed;
         }
