@@ -14,10 +14,10 @@ namespace C_nakeTests.Utilities
     public class SimulateReadKey : IConsoleWrapper
     {
         ConsoleKey keyPressed;
-
-        public SimulateReadKey(ConsoleKey key)
+        
+        public SimulateReadKey(ConsoleKey input)
         {
-            this.keyPressed = key;
+            keyPressed = input;
         }
 
         public ConsoleKeyInfo ReadKey()
@@ -33,30 +33,41 @@ namespace C_nakeTests.Utilities
         [TestMethod]
         public void ShouldReturnUpArrow()
         {
-            SimulateReadKey simulation = new SimulateReadKey(ConsoleKey.UpArrow);
-            ConsoleKey keyPressed = simulation.ReadKey().Key;
-            Assert.AreEqual(keyPressed, ConsoleKey.UpArrow);
+            SimulateReadKey readMyKeyTest = new SimulateReadKey(ConsoleKey.UpArrow);
+            UserInput myInputTest = new UserInput(readMyKeyTest);
+            var actual = myInputTest.GetMove();
+            var expected = ConsoleKey.UpArrow;
+            Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void ShouldReturnDownArrow()
         {
-            SimulateReadKey simulation = new SimulateReadKey(ConsoleKey.DownArrow);
-            ConsoleKey keyPressed = simulation.ReadKey().Key;
-            Assert.AreEqual(keyPressed, ConsoleKey.DownArrow);
+            SimulateReadKey readMyKeyTest = new SimulateReadKey(ConsoleKey.DownArrow);
+            UserInput myInputTest = new UserInput(readMyKeyTest);
+            var actual = myInputTest.GetMove();
+            var expected = ConsoleKey.DownArrow;
+            Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void ShouldReturnRightArrow()
         {
-            SimulateReadKey simulation = new SimulateReadKey(ConsoleKey.RightArrow);
-            ConsoleKey keyPressed = simulation.ReadKey().Key;
-            Assert.AreEqual(keyPressed, ConsoleKey.RightArrow);
+            SimulateReadKey readMyKeyTest = new SimulateReadKey(ConsoleKey.RightArrow);
+            UserInput myInputTest = new UserInput(readMyKeyTest);
+            var actual = myInputTest.GetMove();
+            var expected = ConsoleKey.RightArrow;
+            Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void ShouldReturnLeftArrow()
         {
-            SimulateReadKey simulation = new SimulateReadKey(ConsoleKey.LeftArrow);
-            ConsoleKey keyPressed = simulation.ReadKey().Key;
-            Assert.AreEqual(keyPressed, ConsoleKey.LeftArrow);
+            SimulateReadKey readMyKeyTest = new SimulateReadKey(ConsoleKey.LeftArrow);
+            UserInput myInputTest = new UserInput(readMyKeyTest);
+            var actual = myInputTest.GetMove();
+            var expected = ConsoleKey.LeftArrow;
+            Assert.AreEqual(actual, expected);
         }
 
     }

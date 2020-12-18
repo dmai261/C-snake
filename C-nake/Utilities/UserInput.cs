@@ -8,7 +8,7 @@ namespace C_nake.Utilities
     public class UserInput : IUserInput
     {
 
-        private UserInput(IConsoleWrapper consoleMethods)
+        public UserInput(IConsoleWrapper consoleMethods)
         {
             console = consoleMethods;
         }
