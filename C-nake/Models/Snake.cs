@@ -33,21 +33,16 @@ namespace C_nake.Models
             
         }
 
-
         // 2 check if the arrow choice valid
         //currrent down -> up x down x not move 
         //current up -> down x up x no change
         // same for right and left 
-
 
         private bool isValidDirection(ConsoleKey direction)
         {
             ConsoleKey invalidDirection = arrowDictionary[CurrentDirection];
             return direction != invalidDirection;
         }
-
-      
-
 
         public Snake(Map gameMap)
         {
@@ -83,7 +78,6 @@ namespace C_nake.Models
             map.ChangeTile(bodyCord, new SnakeBodyTile());
         }
 
-
         private void removeTail()
         {
             MapCoordinate curTail = snake.Last.Value;
@@ -93,7 +87,8 @@ namespace C_nake.Models
 
         private bool checkCollision(MapCoordinate newHead)
         {
-            return (map.GetTile(newHead) is BlankTile);
+            Tile nextTile = map.GetTile(newHead);
+            return (nextTile is BlankTile || nextTile is AppleTile);
         }
 
         public bool Move()
@@ -120,9 +115,18 @@ namespace C_nake.Models
             bool isNotCollided = checkCollision(newHead);
             if (isNotCollided)
             {
+                bool willEatApple = map.GetTile(newHead) is AppleTile;
                 map.ChangeTile(curHead, new SnakeBodyTile());
                 addHead(newHead);
-                removeTail();
+
+                if (willEatApple)
+                {
+                    map.GenerateApple();
+                }
+                else
+                {
+                    removeTail();
+                }
             }
             return isNotCollided;
         }

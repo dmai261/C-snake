@@ -6,6 +6,6 @@ namespace C_nake.Constants
 {
     class GameConstants
     {
-        public const int RefreshRate = 150;
+        public const int RefreshRate = 100;
     }
 }
