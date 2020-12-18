@@ -49,5 +49,28 @@ namespace C_nakeTests
 
             Assert.ThrowsException<ArgumentException>(() => map.ChangeTile(wallCoord, body));
         }
+
+        [TestMethod]
+        public void GenerateAppleTest()
+        {
+            map.GenerateApple();
+            Assert.IsTrue(findApple());
+        }
+
+        private bool findApple()
+        {
+            for (int row = 1; row < MapDimensions.Rows - 1; row++)
+            {
+                for (int col = 1; col < MapDimensions.Cols - 1; col++)
+                {
+                    MapCoordinate coord = new MapCoordinate(row, col);
+                    if (map.GetTile(coord) is AppleTile)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }
