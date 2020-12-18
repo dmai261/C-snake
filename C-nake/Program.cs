@@ -1,5 +1,4 @@
 ﻿using C_nake.Models;
-using System;
 
 namespace C_nake
 {

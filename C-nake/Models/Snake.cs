@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Transactions;
 using C_nake.Constants;
 using C_nake.MapTiles;
 
@@ -37,13 +35,16 @@ namespace C_nake.Models
         //currrent down -> up x down x not move 
         //current up -> down x up x no change
         // same for right and left 
-
         private bool isValidDirection(ConsoleKey direction)
         {
             ConsoleKey invalidDirection = arrowDictionary[CurrentDirection];
             return direction != invalidDirection;
         }
 
+        /// <summary>
+        /// Constructor for the game class.
+        /// </summary>
+        /// <param name="gameMap">Game map object to play on.</param>
         public Snake(Map gameMap)
         {
             map = gameMap;
@@ -64,20 +65,21 @@ namespace C_nake.Models
             _currentDirection = InitialSnake.InitialDirection;
         }
 
-        //add coordinate to linked list and matrix 
+        // Add coordinate to linked list and matrix 
         private void addHead(MapCoordinate headCord)
         {
             snake.AddFirst(headCord);
             map.ChangeTile(headCord, new SnakeHeadTile());
         }
 
-        //add coordinate to linked list and matrix 
+        // Add coordinate to linked list and matrix 
         private void addBody(MapCoordinate bodyCord)
         {
             snake.AddLast(bodyCord);
             map.ChangeTile(bodyCord, new SnakeBodyTile());
         }
 
+        // Removes the tail after snake moves.
         private void removeTail()
         {
             MapCoordinate curTail = snake.Last.Value;
@@ -85,12 +87,18 @@ namespace C_nake.Models
             snake.RemoveLast();
         }
 
+        // Check if there will not be a collision.
+        // Returns true if the next move is valid.
         private bool checkCollision(MapCoordinate newHead)
         {
             Tile nextTile = map.GetTile(newHead);
             return (nextTile is BlankTile || nextTile is AppleTile);
         }
 
+        /// <summary>
+        /// Move the snake one tile in the current direction.
+        /// </summary>
+        /// <returns>bool: If the snake was able to move</returns>
         public bool Move()
         {
             MapCoordinate newHead;

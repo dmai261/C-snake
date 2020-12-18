@@ -1,14 +1,12 @@
 ﻿using C_nake.Interfaces;
 using C_nake.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Diagnostics;
 using C_nake.Constants;
 
 namespace C_nake.Models
 {
-    public class Game
+    public class Game : IDrawable
     {
         private Snake originalSnake;
         private Map map;
@@ -22,6 +20,9 @@ namespace C_nake.Models
             input = new UserInput(new ConsoleMethods());
         }
 
+        /// <summary>
+        /// Starts the game.
+        /// </summary>
         public void Start()
         {
             Stopwatch clock = new Stopwatch();
@@ -45,6 +46,9 @@ namespace C_nake.Models
             Console.CursorVisible = true;
         }
         
+        /// <summary>
+        /// Displays controls and draws the game map.
+        /// </summary>
         public void Draw()
         {
             Console.CursorVisible = false;
@@ -55,7 +59,9 @@ namespace C_nake.Models
         }
 
 
-        //when snake collides with body or wall:
+        /// <summary>
+        /// Tells user when game is over, after snake collides with body or wall.
+        /// </summary>
         public void GameOver()
         {
             Console.WriteLine("Game Over! The snake has collided!");

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace C_nake.Interfaces
+﻿namespace C_nake.Interfaces
 {
-    interface IDrawable
+    public interface IDrawable
     {
         void Draw();
     }
