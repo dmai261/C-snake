@@ -11,6 +11,7 @@ namespace C_nake.Models
         private Snake originalSnake;
         private Map map;
         private UserInput input;
+        private int score;
         
         public Game()
         {
@@ -18,6 +19,7 @@ namespace C_nake.Models
             originalSnake = new Snake(map);
             map.GenerateApple();
             input = new UserInput(new ConsoleMethods());
+            score = 0;
         }
 
         /// <summary>
@@ -41,7 +43,7 @@ namespace C_nake.Models
                 }
                 clock.Reset();
             } 
-            while (originalSnake.Move());
+            while (originalSnake.Move(ref score));
             GameOver();
             Console.CursorVisible = true;
         }
@@ -55,6 +57,7 @@ namespace C_nake.Models
             Console.SetCursorPosition(0, 1);
 
             Console.WriteLine("Use the arrow keys to control the snake and avoid colliding with the walls and your body!");
+            Console.WriteLine($"Your score is: {score}");
             map.Draw();
         }
 

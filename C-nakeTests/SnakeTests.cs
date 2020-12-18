@@ -44,13 +44,15 @@ namespace C_nakeTests
         [TestMethod]
         public void MoveTest()
         {
+            int score = 0;
             MapCoordinate startingHeadCoord = InitialSnake.InitialBody[0];
             MapCoordinate nextHeadCoord = new MapCoordinate(startingHeadCoord.Row + 1, startingHeadCoord.Col);
             testSnake.CurrentDirection = ConsoleKey.DownArrow;
 
-            Assert.IsTrue(testSnake.Move());
+            Assert.IsTrue(testSnake.Move(ref score));
             Assert.IsTrue(testMap.GetTile(startingHeadCoord) is SnakeBodyTile);
             Assert.IsTrue(testMap.GetTile(nextHeadCoord) is SnakeHeadTile);
+            Assert.AreEqual(score, GameConstants.AppleScore);
         }
     }
 }

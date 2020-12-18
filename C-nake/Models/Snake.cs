@@ -99,7 +99,7 @@ namespace C_nake.Models
         /// Move the snake one tile in the current direction.
         /// </summary>
         /// <returns>bool: If the snake was able to move</returns>
-        public bool Move()
+        public bool Move(ref int gameScore)
         {
             MapCoordinate newHead;
             MapCoordinate curHead = snake.First.Value;
@@ -130,6 +130,7 @@ namespace C_nake.Models
                 if (willEatApple)
                 {
                     map.GenerateApple();
+                    gameScore += GameConstants.AppleScore;
                 }
                 else
                 {
