@@ -5,7 +5,7 @@ using System.Text;
 
 namespace C_nake.Constants
 {
-    class InitialSnake
+    public class InitialSnake
     {
 
         public const ConsoleKey InitialDirection = ConsoleKey.DownArrow;
@@ -15,7 +15,7 @@ namespace C_nake.Constants
         public static MapCoordinate[] InitialBody = new MapCoordinate[] {
             new MapCoordinate(initialRow, initialCol),
             new MapCoordinate(initialRow-1, initialCol),
-            new MapCoordinate(initialRow-1, initialCol)
+            new MapCoordinate(initialRow-2, initialCol)
         };
     }
 }

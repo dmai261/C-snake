@@ -70,7 +70,6 @@ namespace C_nake.Models
         /// </summary>
         public void Draw()
         {
-            Console.SetCursorPosition(0, 1);
 
             foreach (var row in map)
             {
@@ -78,6 +77,7 @@ namespace C_nake.Models
                 {
                     tile.Draw();
                 }
+                Console.WriteLine();
             }
         }
 

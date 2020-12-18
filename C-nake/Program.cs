@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C_nake.Models;
+using System;
 
 namespace C_nake
 {
@@ -6,7 +7,8 @@ namespace C_nake
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game newGame = new Game();
+            newGame.Start();
         }
     }
 }

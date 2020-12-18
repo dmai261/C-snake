@@ -88,6 +88,7 @@ namespace C_nake.Models
         {
             MapCoordinate curTail = snake.Last.Value;
             map.ChangeTile(curTail, new BlankTile());
+            snake.RemoveLast();
         }
 
         private bool checkCollision(MapCoordinate newHead)
